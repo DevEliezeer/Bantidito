@@ -1,0 +1,7 @@
+COMMAND_SETTINGS:
+  NAME: "sanction"
+  PERMISSION: litebans.ban
+  ALIASES:
+    - "sancion"
+    - "sancionar"
+    - "bangui"

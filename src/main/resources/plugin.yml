@@ -1,4 +1,6 @@
 name: Bantidito
 version: '${project.version}'
 main: dev.vanitymc.bantidito.Bantidito
-api-version: '1.20'
+authors: [VanityMC, Development]
+softdepend:
+  - LiteBans

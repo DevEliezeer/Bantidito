@@ -1,0 +1,9 @@
+SANCTION_COMMAND:
+  CORRECT_USAGE: "&cUsage: /<command> <player>"
+
+SANCTION_CUSTOMIZE:
+  EDITING_REASON: "&eYou're now editing the reason for the sanction. Type '&ccancel&e' in the chat to cancel the process."
+  EDITING_DURATION: "&eYou're now editing the duration for the sanction. Type '&ccancel&e' in the chat to cancel the process."
+  CHANGED_REASON: "&eSanction reason has been changed from '&r<from>&e' to '&r<to>&e'."
+  CHANGED_DURATION: "&eSanction duration has been changed from '&r<from>&e' to '&r<to>&e'."
+  INVALID_DURATION: "&cYou must enter a valid duration format. &7(For example: 1d)"

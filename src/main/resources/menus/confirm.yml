@@ -1,0 +1,70 @@
+MENU_SETTINGS:
+  TITLE: "&8Sanction for &d<target>&8..."
+  ROWS: 3
+
+MENU_REFILL:
+  ENABLED: true
+  DATA: 7
+  SLOTS:
+    - 3
+    - 4
+    - 5
+    - 12
+    - 14
+    - 21
+    - 22
+    - 23
+
+SANCTION_INFO:
+  SLOT: 13
+  ICON:
+    MATERIAL: SKULL_ITEM
+    DATA: 3
+    HEAD: "<target>"
+    DISPLAY_NAME: "&dSanction Info"
+    LORE:
+      - "&8<type> Sanction"
+      - ""
+      - " &7┃ &fPlayer&7: &d<target>"
+      - ""
+      - " &7┃ &fType&7: &d<type>"
+      - " &7┃ &fReason&7: &d<reason>"
+      - " &7┃ &fDuration&7: &d<duration>"
+      - ""
+      - "&eClick to customize!"
+
+CONFIRM_BUTTON:
+  SLOTS:
+    - 0
+    - 1
+    - 2
+    - 9
+    - 10
+    - 11
+    - 18
+    - 19
+    - 20
+  ICON:
+    MATERIAL: STAINED_GLASS_PANE
+    DATA: 5
+    DISPLAY_NAME: "&aConfirm Sanction"
+    LORE:
+      - "&eClick to confirm the sanction!"
+
+DECLINE_BUTTON:
+  SLOTS:
+    - 6
+    - 7
+    - 8
+    - 15
+    - 16
+    - 17
+    - 24
+    - 25
+    - 26
+  ICON:
+    MATERIAL: STAINED_GLASS_PANE
+    DATA: 14
+    DISPLAY_NAME: "&cDecline Sanction"
+    LORE:
+      - "&eClick to decline the sanction!"

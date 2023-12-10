@@ -1,0 +1,488 @@
+MENU_SETTINGS:
+  TITLE: "&8Sanctions for &d<target>&8..."
+  ROWS: 5
+
+MENU_REFILL:
+  ENABLED: true
+  DATA: 7
+  SLOTS:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 5
+    - 6
+    - 7
+    - 8
+    - 36
+    - 37
+    - 38
+    - 39
+    - 40
+    - 41
+    - 42
+    - 43
+    - 44
+
+PLAYER_INFO:
+  SLOT: 4
+  ICON:
+    MATERIAL: SKULL_ITEM
+    DATA: 3
+    HEAD: "<target>" # Leave empty to disable
+    DISPLAY_NAME: "&d<target>'s Info"
+    LORE:
+      - "&8Player Information"
+      - ""
+      - " &7┃ &fNick&7: &d<target>"
+      - ""
+      - "&eClick to view history!"
+
+SANCTIONS:
+  CHEATS:
+    SLOT: 10
+    TYPE: BAN
+    REASON: "Cheats"
+    DURATION: 17d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+    ADMITTED_SETTINGS: # Remove this section to disable sanction admitted settings
+      ADMITTED_DURATION: 7d
+      UNADMITTED_DURATION: 17d
+    VARIATIONS: # Remove this section to disable sanction variations
+      AUTO_CLICK:
+        DISPLAY: "&7(Auto Click)"
+      HACKED_CLIENT:
+        DISPLAY: "&7(Hacked Client)"
+      GHOST_CLIENT:
+        DISPLAY: "&7(Ghost Client)"
+  DTR_EVADING:
+    SLOT: 11
+    TYPE: BAN
+    REASON: "DTR Evading"
+    DURATION: 6h
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  KICK_AND_KILL:
+    SLOT: 12
+    TYPE: BAN
+    REASON: "Kick & Kill"
+    DURATION: 6h
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  BETRAY:
+    SLOT: 13
+    TYPE: BAN
+    REASON: "Betray"
+    DURATION: 3d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  BLOCK_GLITCH:
+    SLOT: 14
+    TYPE: BAN
+    REASON: "Block Glitch"
+    DURATION: 3h
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  ALLY_IN_KOTH:
+    SLOT: 15
+    TYPE: BAN
+    REASON: "Ally In KoTH"
+    DURATION: 8h
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  DOX_OR_DDOS:
+    SLOT: 16
+    TYPE: BAN
+    REASON: "DOX or DDOS"
+    DURATION: 3d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  FACTION_GRIEFING:
+    SLOT: 18
+    TYPE: BAN
+    REASON: "Faction Griefing"
+    DURATION: 1d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  KILL_BOOSTING:
+    SLOT: 19
+    TYPE: BAN
+    REASON: "Kill Boosting"
+    DURATION: 3d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  DTR_BOOSTING:
+    SLOT: 20
+    TYPE: BAN
+    REASON: "DTR Boosting"
+    DURATION: 12h
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  PLAYER_FREEZING:
+    SLOT: 21
+    TYPE: BAN
+    REASON: "Player Freezing"
+    DURATION: 12h
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  BUG_ABUSE:
+    SLOT: 22
+    TYPE: BAN
+    REASON: "Bug Abuse"
+    DURATION: 3d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  PVP_TIMER_ABUSE:
+    SLOT: 23
+    TYPE: BAN
+    REASON: "PvPTimer Abuse"
+    DURATION: 3d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  LIE_TO_STAFF:
+    SLOT: 24
+    TYPE: BAN
+    REASON: "Lie To Staff"
+    DURATION: 12h
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  ENEMY_TEAMING:
+    SLOT: 25
+    TYPE: BAN
+    REASON: "Enemy Teaming"
+    DURATION: 2d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  KNOCK_WITH_ALTS:
+    SLOT: 26
+    TYPE: BAN
+    REASON: "Knock With Alts"
+    DURATION: 3d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  TRUCE:
+    SLOT: 28
+    TYPE: BAN
+    REASON: "Truce"
+    DURATION: 12h
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  ILLEGAL_TRAP:
+    SLOT: 29
+    TYPE: BAN
+    REASON: "Illegal Trap"
+    DURATION: 3d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  HOLDING_HOSTAGE:
+    SLOT: 30
+    TYPE: BAN
+    REASON: "Holding Hostage"
+    DURATION: 12h
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  INSIDE:
+    SLOT: 31
+    TYPE: BAN
+    REASON: "Inside"
+    DURATION: 3d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  EXCESSIVE_TOXICITY:
+    SLOT: 32
+    TYPE: BAN
+    REASON: "Excessive Toxicity"
+    DURATION: 1d
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  BAN_EVADING:
+    SLOT: 33
+    TYPE: BAN
+    REASON: "Ban Evading"
+    DURATION: PERMANENT
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"
+  GRIEFING_ATTEMPT:
+    SLOT: 34
+    TYPE: BAN
+    REASON: "Griefing Attempt"
+    DURATION: PERMANENT
+    ICON:
+      MATERIAL: BOOK
+      DATA: 0
+      DISPLAY_NAME: "&d&l<reason> &7(<duration>)"
+      LORE:
+        - "&8<type> Sanction"
+        - ""
+        - " &7┃ &fType&7: &d<type>"
+        - ""
+        - " &7┃ &fReason&7: &d<reason>"
+        - " &7┃ &fDuration&7: &d<duration>"
+        - ""
+        - "&eLeft click to sanction!"
+        - "&eRight click to customize!"

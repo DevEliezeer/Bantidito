@@ -1,0 +1,120 @@
+MENU_SETTINGS:
+  TITLE: "&8Customizing sanction..."
+  ROWS: 5
+
+MENU_REFILL:
+  ENABLED: true
+  DATA: 7
+  SLOTS:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 5
+    - 6
+    - 7
+    - 8
+    - 36
+    - 37
+    - 38
+    - 39
+    - 41
+    - 42
+    - 43
+    - 44
+
+BACK_BUTTON:
+  ENABLED: true
+  SLOT: 40
+  ICON:
+    MATERIAL: BED
+    DATA: 0
+    DISPLAY_NAME: "&cBack"
+    LORE: []
+
+SANCTION_INFO:
+  SLOT: 4
+  ICON:
+    DISPLAY_NAME: "&dSanction Info"
+    LORE:
+      - "&8<type> Sanction"
+      - ""
+      - " &7┃ &fPlayer&7: &d<target>"
+      - ""
+      - " &7┃ &fType&7: &d<type>"
+      - " &7┃ &fReason&7: &d<reason>"
+      - " &7┃ &fDuration&7: &d<duration>"
+      - ""
+      - "&eClick to sanction!"
+
+DISABLED_FEATURE:
+  ICON:
+    MATERIAL: BARRIER
+    DATA: 0
+    DISPLAY_NAME: "&cDisabled Feature"
+    LORE:
+      - "&cThis feature is disabled for this sanction."
+
+CHANGE_REASON_BUTTON:
+  SLOT: 19
+  ICON:
+    MATERIAL: SIGN
+    DATA: 0
+    DISPLAY_NAME: "&dChange Reason"
+    LORE:
+      - "&8Sanction Reason"
+      - ""
+      - " &7┃ &fReason&7: &d<reason>"
+      - ""
+      - "&eClick to change reason!"
+
+CHANGE_DURATION_BUTTON:
+  SLOT: 21
+  ICON:
+    MATERIAL: WATCH
+    DATA: 0
+    DISPLAY_NAME: "&dChange Duration"
+    LORE:
+      - "&8Sanction Duration"
+      - ""
+      - " &7┃ &fDuration&7: &d<duration>"
+      - ""
+      - "&eClick to change duration!"
+
+CHANGE_VARIATION_BUTTON:
+  SLOT: 23
+  ICON:
+    MATERIAL: EYE_OF_ENDER
+    DATA: 0
+    DISPLAY_NAME: "&dChange Variation"
+    LORE_FORMAT: " <status>● &r<variation>"
+    LORE:
+      - "&8Sanction Variation"
+      - ""
+      - "<variations>"
+      - ""
+      - "&eClick to change variation!"
+
+TOGGLE_ADMITTED_BUTTON:
+  SLOT: 25
+  ICON:
+    ADMITTED_BUTTON:
+      MATERIAL: INK_SACK
+      DATA: 10
+      DISPLAY_NAME: "&dToggle Admitted"
+      LORE:
+        - "&8Sanction Admitted"
+        - ""
+        - " &7┃ &fStatus&7: &dAdmitted &8(&a✔&8)"
+        - ""
+        - "&eClick to toggle admitted!"
+    UNADMITTED_BUTTON:
+      MATERIAL: INK_SACK
+      DATA: 8
+      DISPLAY_NAME: "&dToggle Admitted"
+      LORE:
+        - "&8Sanction Admitted"
+        - ""
+        - " &7┃ &fStatus&7: &dUnadmitted &8(&c✘&8)"
+        - ""
+        - "&eClick to toggle admitted!"
