@@ -1,0 +1,244 @@
+package dev.styles.bantidito.config;
+
+import dev.styles.bantidito.Bantidito;
+import dev.styles.bantidito.utilities.file.FileConfig;
+import org.bukkit.configuration.ConfigurationSection;
+
+import java.util.List;
+import java.util.Map;
+
+public class Config {
+
+    private FileConfig configFile;
+    private FileConfig confirmFile;
+    private FileConfig customizeFile;
+    private FileConfig sanctionFile;
+
+    public static String LICENSE_KEY;
+
+    public static String SANCTION_SETTINGS_BAN_COMMAND;
+    public static String SANCTION_SETTINGS_TEMPBAN_COMMAND;
+    public static String SANCTION_SETTINGS_MUTE_COMMAND;
+    public static String SANCTION_SETTINGS_TEMPMUTE_COMMAND;
+    public static String SANCTION_SETTINGS_WARN_COMMAND;
+    public static String SANCTION_SETTINGS_HISTORY_COMMAND;
+
+    public static String COMMAND_SETTINGS_NAME;
+    public static String COMMAND_SETTINGS_PERMISSION;
+    public static List<String> COMMAND_SETTINGS_ALIASES;
+
+    public static String CONFIRM_TITLE;
+    public static int CONFIRM_ROWS;
+    public static boolean CONFIRM_REFILL_ENABLED;
+    public static int CONFIRM_REFILL_DATA;
+    public static List<Integer> CONFIRM_REFILL_SLOTS;
+
+    public static int CONFIRM_SANCTION_INFO_SLOT;
+    public static String CONFIRM_SANCTION_INFO_ICON_MATERIAL;
+    public static int CONFIRM_SANCTION_INFO_ICON_DATA;
+    public static String CONFIRM_SANCTION_INFO_ICON_HEAD;
+    public static String CONFIRM_SANCTION_INFO_ICON_DISPLAY_NAME;
+    public static List<String> CONFIRM_SANCTION_INFO_ICON_LORE;
+
+    public static List<Integer> CONFIRM_BUTTON_SLOTS;
+    public static String CONFIRM_BUTTON_ICON_MATERIAL;
+    public static int CONFIRM_BUTTON_ICON_DATA;
+    public static String CONFIRM_BUTTON_ICON_DISPLAY_NAME;
+    public static List<String> CONFIRM_BUTTON_ICON_LORE;
+
+    public static List<Integer> DECLINE_BUTTON_SLOTS;
+    public static String DECLINE_BUTTON_ICON_MATERIAL;
+    public static int DECLINE_BUTTON_ICON_DATA;
+    public static String DECLINE_BUTTON_ICON_DISPLAY_NAME;
+    public static List<String> DECLINE_BUTTON_ICON_LORE;
+
+    public static String CUSTOMIZE_TITLE;
+    public static int CUSTOMIZE_ROWS;
+    public static boolean CUSTOMIZE_REFILL_ENABLED;
+    public static int CUSTOMIZE_REFILL_DATA;
+    public static List<Integer> CUSTOMIZE_REFILL_SLOTS;
+    
+    public static boolean CUSTOMIZE_BACK_BUTTON_ENABLED;
+    public static int CUSTOMIZE_BACK_BUTTON_SLOT;
+    public static String CUSTOMIZE_BACK_BUTTON_ICON_MATERIAL;
+    public static int CUSTOMIZE_BACK_BUTTON_ICON_DATA;
+    public static String CUSTOMIZE_BACK_BUTTON_ICON_DISPLAY_NAME;
+    public static List<String> CUSTOMIZE_BACK_BUTTON_ICON_LORE;
+
+    public static int CUSTOMIZE_SANCTION_INFO_SLOT;
+    public static String CUSTOMIZE_SANCTION_INFO_ICON_DISPLAY_NAME;
+    public static List<String> CUSTOMIZE_SANCTION_INFO_ICON_LORE;
+
+    public static String CUSTOMIZE_DISABLED_FEATURE_ICON_MATERIAL;
+    public static int CUSTOMIZE_DISABLED_FEATURE_ICON_DATA;
+    public static String CUSTOMIZE_DISABLED_FEATURE_ICON_DISPLAY_NAME;
+    public static List<String> CUSTOMIZE_DISABLED_FEATURE_ICON_LORE;
+
+    public static int CUSTOMIZE_CHANGE_REASON_BUTTON_SLOT;
+    public static String CUSTOMIZE_CHANGE_REASON_BUTTON_ICON_MATERIAL;
+    public static int CUSTOMIZE_CHANGE_REASON_BUTTON_ICON_DATA;
+    public static String CUSTOMIZE_CHANGE_REASON_BUTTON_ICON_DISPLAY_NAME;
+    public static List<String> CUSTOMIZE_CHANGE_REASON_BUTTON_ICON_LORE;
+
+    public static int CUSTOMIZE_CHANGE_DURATION_BUTTON_SLOT;
+    public static String CUSTOMIZE_CHANGE_DURATION_BUTTON_ICON_MATERIAL;
+    public static int CUSTOMIZE_CHANGE_DURATION_BUTTON_ICON_DATA;
+    public static String CUSTOMIZE_CHANGE_DURATION_BUTTON_ICON_DISPLAY_NAME;
+    public static List<String> CUSTOMIZE_CHANGE_DURATION_BUTTON_ICON_LORE;
+
+    public static int CUSTOMIZE_CHANGE_VARIATION_BUTTON_SLOT;
+    public static String CUSTOMIZE_CHANGE_VARIATION_BUTTON_ICON_MATERIAL;
+    public static int CUSTOMIZE_CHANGE_VARIATION_BUTTON_ICON_DATA;
+    public static String CUSTOMIZE_CHANGE_VARIATION_BUTTON_ICON_DISPLAY_NAME;
+    public static String CUSTOMIZE_CHANGE_VARIATION_BUTTON_ICON_LORE_FORMAT;
+    public static List<String> CUSTOMIZE_CHANGE_VARIATION_BUTTON_ICON_LORE;
+
+    public static int CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_SLOT;
+
+    public static String CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_ADMITTED_BUTTON_MATERIAL;
+    public static int CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_ADMITTED_BUTTON_DATA;
+    public static String CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_ADMITTED_BUTTON_DISPLAY_NAME;
+    public static List<String> CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_ADMITTED_BUTTON_LORE;
+
+    public static String CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_UNADMITTED_BUTTON_MATERIAL;
+    public static int CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_UNADMITTED_BUTTON_DATA;
+    public static String CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_UNADMITTED_BUTTON_DISPLAY_NAME;
+    public static List<String> CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_UNADMITTED_BUTTON_LORE;
+
+    public static String SANCTIONS_TITLE;
+    public static int SANCTIONS_ROWS;
+    public static boolean SANCTIONS_REFILL_ENABLED;
+    public static int SANCTIONS_REFILL_DATA;
+    public static List<Integer> SANCTIONS_REFILL_SLOTS;
+
+    public static int SANCTIONS_PLAYER_INFO_SLOT;
+    public static String SANCTIONS_PLAYER_INFO_ICON_MATERIAL;
+    public static int SANCTIONS_PLAYER_INFO_ICON_DATA;
+    public static String SANCTIONS_PLAYER_INFO_ICON_HEAD;
+    public static String SANCTIONS_PLAYER_INFO_ICON_DISPLAY_NAME;
+    public static List<String> SANCTIONS_PLAYER_INFO_ICON_LORE;
+
+    public static ConfigurationSection SANCTIONS;
+
+    public Config(Bantidito plugin, Map<String, FileConfig> files) {
+        files.put("config", new FileConfig(plugin, "config.yml"));
+        files.put("confirm", new FileConfig(plugin, "menus/confirm.yml"));
+        files.put("customize", new FileConfig(plugin, "menus/customize.yml"));
+        files.put("sanction", new FileConfig(plugin, "menus/sanction.yml"));
+
+        initialize(files);
+    }
+
+    public void initialize(Map<String, FileConfig> files) {
+        configFile = files.get("config");
+        confirmFile = files.get("confirm");
+        customizeFile = files.get("customize");
+        sanctionFile = files.get("sanction");
+
+        LICENSE_KEY = configFile.getString("LICENSE_KEY");
+
+        COMMAND_SETTINGS_NAME = configFile.getString("COMMAND_SETTINGS.NAME");
+        COMMAND_SETTINGS_PERMISSION = configFile.getString("COMMAND_SETTINGS.PERMISSION");
+        COMMAND_SETTINGS_ALIASES = configFile.getStringList("COMMAND_SETTINGS.ALIASES");
+
+        SANCTION_SETTINGS_BAN_COMMAND = configFile.getString("SANCTION_SETTINGS.BAN_COMMAND");
+        SANCTION_SETTINGS_TEMPBAN_COMMAND = configFile.getString("SANCTION_SETTINGS.TEMPBAN_COMMAND");
+        SANCTION_SETTINGS_MUTE_COMMAND = configFile.getString("SANCTION_SETTINGS.MUTE_COMMAND");
+        SANCTION_SETTINGS_TEMPMUTE_COMMAND = configFile.getString("SANCTION_SETTINGS.TEMPMUTE_COMMAND");
+        SANCTION_SETTINGS_WARN_COMMAND = configFile.getString("SANCTION_SETTINGS.WARN_COMMAND");
+        SANCTION_SETTINGS_HISTORY_COMMAND = configFile.getString("SANCTION_SETTINGS.HISTORY_COMMAND");
+
+        CONFIRM_TITLE = confirmFile.getString("MENU_SETTINGS.TITLE");
+        CONFIRM_ROWS = confirmFile.getInt("MENU_SETTINGS.ROWS");
+        CONFIRM_REFILL_ENABLED = confirmFile.getBoolean("MENU_REFILL.ENABLED");
+        CONFIRM_REFILL_DATA = confirmFile.getInt("MENU_REFILL.DATA");
+        CONFIRM_REFILL_SLOTS = confirmFile.getIntList("MENU_REFILL.SLOTS");
+
+        CONFIRM_SANCTION_INFO_SLOT = confirmFile.getInt("SANCTION_INFO.SLOT");
+        CONFIRM_SANCTION_INFO_ICON_MATERIAL = confirmFile.getString("SANCTION_INFO.ICON.MATERIAL");
+        CONFIRM_SANCTION_INFO_ICON_DATA = confirmFile.getInt("SANCTION_INFO.ICON.DATA");
+        CONFIRM_SANCTION_INFO_ICON_HEAD = confirmFile.getString("SANCTION_INFO.ICON.HEAD");
+        CONFIRM_SANCTION_INFO_ICON_DISPLAY_NAME = confirmFile.getString("SANCTION_INFO.ICON.DISPLAY_NAME");
+        CONFIRM_SANCTION_INFO_ICON_LORE = confirmFile.getStringList("SANCTION_INFO.ICON.LORE");
+
+        CONFIRM_BUTTON_SLOTS = confirmFile.getIntList("CONFIRM_BUTTON.SLOTS");
+        CONFIRM_BUTTON_ICON_MATERIAL = confirmFile.getString("CONFIRM_BUTTON.ICON.MATERIAL");
+        CONFIRM_BUTTON_ICON_DATA = confirmFile.getInt("CONFIRM_BUTTON.ICON.DATA");
+        CONFIRM_BUTTON_ICON_DISPLAY_NAME = confirmFile.getString("CONFIRM_BUTTON.ICON.DISPLAY_NAME");
+        CONFIRM_BUTTON_ICON_LORE = confirmFile.getStringList("CONFIRM_BUTTON.ICON.LORE");
+
+        DECLINE_BUTTON_SLOTS = confirmFile.getIntList("DECLINE_BUTTON.SLOTS");
+        DECLINE_BUTTON_ICON_MATERIAL = confirmFile.getString("DECLINE_BUTTON.ICON.MATERIAL");
+        DECLINE_BUTTON_ICON_DATA = confirmFile.getInt("DECLINE_BUTTON.ICON.DATA");
+        DECLINE_BUTTON_ICON_DISPLAY_NAME = confirmFile.getString("DECLINE_BUTTON.ICON.DISPLAY_NAME");
+        DECLINE_BUTTON_ICON_LORE = confirmFile.getStringList("DECLINE_BUTTON.ICON.LORE");
+
+        CUSTOMIZE_TITLE = customizeFile.getString("MENU_SETTINGS.TITLE");
+        CUSTOMIZE_ROWS = customizeFile.getInt("MENU_SETTINGS.ROWS");
+        CUSTOMIZE_REFILL_ENABLED = customizeFile.getBoolean("MENU_REFILL.ENABLED");
+        CUSTOMIZE_REFILL_DATA = customizeFile.getInt("MENU_REFILL.DATA");
+        CUSTOMIZE_REFILL_SLOTS = customizeFile.getIntList("MENU_REFILL.SLOTS");
+
+        CUSTOMIZE_BACK_BUTTON_ENABLED = customizeFile.getBoolean("BACK_BUTTON.ENABLED");
+        CUSTOMIZE_BACK_BUTTON_SLOT = customizeFile.getInt("BACK_BUTTON.SLOT");
+        CUSTOMIZE_BACK_BUTTON_ICON_MATERIAL = customizeFile.getString("BACK_BUTTON.ICON.MATERIAL");
+        CUSTOMIZE_BACK_BUTTON_ICON_DATA = customizeFile.getInt("BACK_BUTTON.ICON.DATA");
+        CUSTOMIZE_BACK_BUTTON_ICON_DISPLAY_NAME = customizeFile.getString("BACK_BUTTON.ICON.DISPLAY_NAME");
+        CUSTOMIZE_BACK_BUTTON_ICON_LORE = customizeFile.getStringList("BACK_BUTTON.ICON.LORE");
+
+        CUSTOMIZE_SANCTION_INFO_SLOT = customizeFile.getInt("SANCTION_INFO.SLOT");
+        CUSTOMIZE_SANCTION_INFO_ICON_DISPLAY_NAME = customizeFile.getString("SANCTION_INFO.ICON.DISPLAY_NAME");
+        CUSTOMIZE_SANCTION_INFO_ICON_LORE = customizeFile.getStringList("SANCTION_INFO.ICON.LORE");
+
+        CUSTOMIZE_DISABLED_FEATURE_ICON_MATERIAL = customizeFile.getString("DISABLED_FEATURE.ICON.MATERIAL");
+        CUSTOMIZE_DISABLED_FEATURE_ICON_DATA = customizeFile.getInt("DISABLED_FEATURE.ICON.DATA");
+        CUSTOMIZE_DISABLED_FEATURE_ICON_DISPLAY_NAME = customizeFile.getString("DISABLED_FEATURE.ICON.DISPLAY_NAME");
+        CUSTOMIZE_DISABLED_FEATURE_ICON_LORE = customizeFile.getStringList("DISABLED_FEATURE.ICON.LORE");
+
+        CUSTOMIZE_CHANGE_REASON_BUTTON_SLOT = customizeFile.getInt("CHANGE_REASON_BUTTON.SLOT");
+        CUSTOMIZE_CHANGE_REASON_BUTTON_ICON_MATERIAL = customizeFile.getString("CHANGE_REASON_BUTTON.ICON.MATERIAL");
+        CUSTOMIZE_CHANGE_REASON_BUTTON_ICON_DATA = customizeFile.getInt("CHANGE_REASON_BUTTON.ICON.DATA");
+        CUSTOMIZE_CHANGE_REASON_BUTTON_ICON_DISPLAY_NAME = customizeFile.getString("CHANGE_REASON_BUTTON.ICON.DISPLAY_NAME");
+        CUSTOMIZE_CHANGE_REASON_BUTTON_ICON_LORE = customizeFile.getStringList("CHANGE_REASON_BUTTON.ICON.LORE");
+
+        CUSTOMIZE_CHANGE_DURATION_BUTTON_SLOT = customizeFile.getInt("CHANGE_DURATION_BUTTON.SLOT");
+        CUSTOMIZE_CHANGE_DURATION_BUTTON_ICON_MATERIAL = customizeFile.getString("CHANGE_DURATION_BUTTON.ICON.MATERIAL");
+        CUSTOMIZE_CHANGE_DURATION_BUTTON_ICON_DATA = customizeFile.getInt("CHANGE_DURATION_BUTTON.ICON.DATA");
+        CUSTOMIZE_CHANGE_DURATION_BUTTON_ICON_DISPLAY_NAME = customizeFile.getString("CHANGE_DURATION_BUTTON.ICON.DISPLAY_NAME");
+        CUSTOMIZE_CHANGE_DURATION_BUTTON_ICON_LORE = customizeFile.getStringList("CHANGE_DURATION_BUTTON.ICON.LORE");
+
+        CUSTOMIZE_CHANGE_VARIATION_BUTTON_SLOT = customizeFile.getInt("CHANGE_VARIATION_BUTTON.SLOT");
+        CUSTOMIZE_CHANGE_VARIATION_BUTTON_ICON_MATERIAL = customizeFile.getString("CHANGE_VARIATION_BUTTON.ICON.MATERIAL");
+        CUSTOMIZE_CHANGE_VARIATION_BUTTON_ICON_DATA = customizeFile.getInt("CHANGE_VARIATION_BUTTON.ICON.DATA");
+        CUSTOMIZE_CHANGE_VARIATION_BUTTON_ICON_DISPLAY_NAME = customizeFile.getString("CHANGE_VARIATION_BUTTON.ICON.DISPLAY_NAME");
+        CUSTOMIZE_CHANGE_VARIATION_BUTTON_ICON_LORE_FORMAT = customizeFile.getString("CHANGE_VARIATION_BUTTON.ICON.LORE_FORMAT");
+        CUSTOMIZE_CHANGE_VARIATION_BUTTON_ICON_LORE = customizeFile.getStringList("CHANGE_VARIATION_BUTTON.ICON.LORE");
+
+        CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_SLOT = customizeFile.getInt("TOGGLE_ADMITTED_BUTTON.SLOT");
+
+        CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_ADMITTED_BUTTON_MATERIAL = customizeFile.getString("TOGGLE_ADMITTED_BUTTON.ICON.ADMITTED_BUTTON.MATERIAL");
+        CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_ADMITTED_BUTTON_DATA = customizeFile.getInt("TOGGLE_ADMITTED_BUTTON.ICON.ADMITTED_BUTTON.DATA");
+        CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_ADMITTED_BUTTON_DISPLAY_NAME = customizeFile.getString("TOGGLE_ADMITTED_BUTTON.ICON.ADMITTED_BUTTON.DISPLAY_NAME");
+        CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_ADMITTED_BUTTON_LORE = customizeFile.getStringList("TOGGLE_ADMITTED_BUTTON.ICON.ADMITTED_BUTTON.LORE");
+
+        CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_UNADMITTED_BUTTON_MATERIAL = customizeFile.getString("TOGGLE_ADMITTED_BUTTON.ICON.UNADMITTED_BUTTON.MATERIAL");
+        CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_UNADMITTED_BUTTON_DATA = customizeFile.getInt("TOGGLE_ADMITTED_BUTTON.ICON.UNADMITTED_BUTTON.DATA");
+        CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_UNADMITTED_BUTTON_DISPLAY_NAME = customizeFile.getString("TOGGLE_ADMITTED_BUTTON.ICON.UNADMITTED_BUTTON.DISPLAY_NAME");
+        CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_ICON_UNADMITTED_BUTTON_LORE = customizeFile.getStringList("TOGGLE_ADMITTED_BUTTON.ICON.UNADMITTED_BUTTON.LORE");
+
+        SANCTIONS_TITLE = sanctionFile.getString("MENU_SETTINGS.TITLE");
+        SANCTIONS_ROWS = sanctionFile.getInt("MENU_SETTINGS.ROWS");
+        SANCTIONS_REFILL_ENABLED = sanctionFile.getBoolean("MENU_REFILL.ENABLED");
+        SANCTIONS_REFILL_DATA = sanctionFile.getInt("MENU_REFILL.DATA");
+        SANCTIONS_REFILL_SLOTS = sanctionFile.getIntList("MENU_REFILL.SLOTS");
+
+        SANCTIONS_PLAYER_INFO_SLOT = sanctionFile.getInt("PLAYER_INFO.SLOT");
+        SANCTIONS_PLAYER_INFO_ICON_MATERIAL = sanctionFile.getString("PLAYER_INFO.ICON.MATERIAL");
+        SANCTIONS_PLAYER_INFO_ICON_DATA = sanctionFile.getInt("PLAYER_INFO.ICON.DATA");
+        SANCTIONS_PLAYER_INFO_ICON_HEAD = sanctionFile.getString("PLAYER_INFO.ICON.HEAD");
+        SANCTIONS_PLAYER_INFO_ICON_DISPLAY_NAME = sanctionFile.getString("PLAYER_INFO.ICON.DISPLAY_NAME");
+        SANCTIONS_PLAYER_INFO_ICON_LORE = sanctionFile.getStringList("PLAYER_INFO.ICON.LORE");
+
+        SANCTIONS = sanctionFile.getConfigurationSection("SANCTIONS");
+    }
+}

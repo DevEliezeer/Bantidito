@@ -1,7 +1,9 @@
+# Menu Settings
 MENU_SETTINGS:
   TITLE: "&8Sanctions for &d<target>&8..."
   ROWS: 5
 
+# Menu Refill Glass Settings
 MENU_REFILL:
   ENABLED: true
   DATA: 7
@@ -24,6 +26,7 @@ MENU_REFILL:
     - 43
     - 44
 
+# Player Info Button
 PLAYER_INFO:
   SLOT: 4
   ICON:
@@ -38,6 +41,7 @@ PLAYER_INFO:
       - ""
       - "&eClick to view history!"
 
+# Sanctions Button(s)
 SANCTIONS:
   CHEATS:
     SLOT: 10

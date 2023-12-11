@@ -1,3 +1,7 @@
+# License Key
+LICENSE-KEY: "PUT-HERE-YOUR-LICENSE-KEY"
+
+# Command Settings
 COMMAND_SETTINGS:
   NAME: "sanction"
   PERMISSION: litebans.ban
@@ -5,3 +9,12 @@ COMMAND_SETTINGS:
     - "sancion"
     - "sancionar"
     - "bangui"
+
+# Sanction Settings
+SANCTION_SETTINGS:
+  BAN_COMMAND: "ban -s <player> <reason>"
+  TEMPBAN_COMMAND: "tempban -s <player> <duration> <reason>"
+  MUTE_COMMAND: "mute -s <player> <reason>"
+  TEMP_MUTE_COMMAND: "tempmute -s <player> <duration> <reason>"
+  WARN_COMMAND: "warn -s <player> <reason>"
+  HISTORY_COMMAND: "history <player>"

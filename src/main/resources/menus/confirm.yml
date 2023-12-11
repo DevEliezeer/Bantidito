@@ -1,7 +1,9 @@
+# Menu Settings
 MENU_SETTINGS:
   TITLE: "&8Sanction for &d<target>&8..."
   ROWS: 3
 
+# Menu Refill Glass Settings
 MENU_REFILL:
   ENABLED: true
   DATA: 7
@@ -15,6 +17,7 @@ MENU_REFILL:
     - 22
     - 23
 
+# Santion Info Button
 SANCTION_INFO:
   SLOT: 13
   ICON:
@@ -33,6 +36,7 @@ SANCTION_INFO:
       - ""
       - "&eClick to customize!"
 
+# Confirm Button(s)
 CONFIRM_BUTTON:
   SLOTS:
     - 0
@@ -51,6 +55,7 @@ CONFIRM_BUTTON:
     LORE:
       - "&eClick to confirm the sanction!"
 
+# Decline Button(s)
 DECLINE_BUTTON:
   SLOTS:
     - 6

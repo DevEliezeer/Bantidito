@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dev.vanitymc.bantidito</groupId>
+    <groupId>dev.styles.bantidito</groupId>
     <artifactId>Bantidito</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -86,7 +86,7 @@
                     <relocations>
                         <relocation>
                             <pattern>com.cryptomorin.xseries</pattern>
-                            <shadedPattern>dev.vanitymc.bantidito.shade.xseries</shadedPattern>
+                            <shadedPattern>dev.styles.bantidito.shade.xseries</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>

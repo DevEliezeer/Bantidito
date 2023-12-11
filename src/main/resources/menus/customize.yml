@@ -1,7 +1,9 @@
+# Menu Settings
 MENU_SETTINGS:
   TITLE: "&8Customizing sanction..."
   ROWS: 5
 
+# Menu Refill Glass Settings
 MENU_REFILL:
   ENABLED: true
   DATA: 7
@@ -23,6 +25,7 @@ MENU_REFILL:
     - 43
     - 44
 
+# Back Button
 BACK_BUTTON:
   ENABLED: true
   SLOT: 40
@@ -32,6 +35,7 @@ BACK_BUTTON:
     DISPLAY_NAME: "&cBack"
     LORE: []
 
+# Sanction Info Button
 SANCTION_INFO:
   SLOT: 4
   ICON:
@@ -47,6 +51,7 @@ SANCTION_INFO:
       - ""
       - "&eClick to sanction!"
 
+# Disabled Feature Button
 DISABLED_FEATURE:
   ICON:
     MATERIAL: BARRIER
@@ -55,6 +60,7 @@ DISABLED_FEATURE:
     LORE:
       - "&cThis feature is disabled for this sanction."
 
+# Change Reason Button
 CHANGE_REASON_BUTTON:
   SLOT: 19
   ICON:
@@ -68,6 +74,7 @@ CHANGE_REASON_BUTTON:
       - ""
       - "&eClick to change reason!"
 
+# Change Duration Button
 CHANGE_DURATION_BUTTON:
   SLOT: 21
   ICON:
@@ -81,6 +88,7 @@ CHANGE_DURATION_BUTTON:
       - ""
       - "&eClick to change duration!"
 
+# Change Variation Button
 CHANGE_VARIATION_BUTTON:
   SLOT: 23
   ICON:
@@ -95,6 +103,7 @@ CHANGE_VARIATION_BUTTON:
       - ""
       - "&eClick to change variation!"
 
+# Toggle Admitted Button
 TOGGLE_ADMITTED_BUTTON:
   SLOT: 25
   ICON:

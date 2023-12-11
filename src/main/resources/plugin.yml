@@ -1,6 +1,6 @@
 name: Bantidito
 version: '${project.version}'
-main: dev.vanitymc.bantidito.Bantidito
-authors: [VanityMC, Development]
+main: dev.styles.bantidito.Bantidito
+authors: [Styles, Development]
 softdepend:
   - LiteBans
