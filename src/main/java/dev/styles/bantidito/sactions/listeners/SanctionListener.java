@@ -25,73 +25,96 @@ public class SanctionListener implements Listener {
     }
 
     @EventHandler
-    private void onAsyncPlayerChat(AsyncPlayerChatEvent event) {
+    public void onAsyncPlayerChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
 
         if (sanctionsManager.isEditingMode(player)) {
-            event.setCancelled(true);
-            SanctionCustom sanctionCustom = sanctionsManager.getEditingPlayers().get(player);
-
-            if (event.getMessage().equalsIgnoreCase("cancel")) {
-                sanctionsManager.removeEditingReason(player);
-                sanctionsManager.removeEditingDuration(player);
-
-                new CustomizeMenu(sanctionsManager, sanctionCustom.getTarget(), sanctionCustom).openMenu(player);
-                return;
-            }
-
-            if (sanctionsManager.isEditingReason(player)) {
-                SenderUtil.sendMessage(player, Language.SANCTION_CUSTOMIZE_CHANGED_REASON
-                        .replace("<from>", sanctionCustom.getReason())
-                        .replace("<to>", event.getMessage()));
-
-                sanctionCustom.setReason(event.getMessage());
-                sanctionsManager.removeEditingReason(player);
-            } else if (sanctionsManager.isEditingDuration(player)) {
-                String duration = event.getMessage().trim();
-
-                if(duration.equalsIgnoreCase("permanent") || duration.equalsIgnoreCase("perm")) {
-                    SenderUtil.sendMessage(player, Language.SANCTION_CUSTOMIZE_CHANGED_DURATION
-                            .replace("<from>", StringUtil.capitalizeFirstLetter(sanctionCustom.getDuration()))
-                            .replace("<to>", "Permanent"));
-
-                    sanctionCustom.setDuration("PERMANENT");
-                    sanctionsManager.removeEditingDuration(player);
-                    new CustomizeMenu(sanctionsManager, sanctionCustom.getTarget(), sanctionCustom).openMenu(player);
-                    return;
-                }
-
-                if (!isValidDuration(duration)) {
-                    SenderUtil.sendMessage(player, Language.SANCTION_CUSTOMIZE_INVALID_DURATION);
-                    return;
-                }
-
-                SenderUtil.sendMessage(player, Language.SANCTION_CUSTOMIZE_CHANGED_DURATION
-                        .replace("<from>", StringUtil.capitalizeFirstLetter(sanctionCustom.getDuration()))
-                        .replace("<to>", event.getMessage()));
-
-                sanctionCustom.setDuration(event.getMessage());
-                sanctionsManager.removeEditingDuration(player);
-            }
-
-            new CustomizeMenu(sanctionsManager, sanctionCustom.getTarget(), sanctionCustom).openMenu(player);
+            handleEditingMode(event, player);
         }
     }
 
     @EventHandler
-    private void onPlayerQuit(PlayerQuitEvent event) {
+    public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
+        clearEditingData(player);
+    }
 
+    private void handleEditingMode(AsyncPlayerChatEvent event, Player player) {
+        event.setCancelled(true);
+        SanctionCustom sanctionCustom = sanctionsManager.getEditingPlayers().get(player);
+
+        if (event.getMessage().equalsIgnoreCase("cancel")) {
+            handleCancelEditing(player, sanctionCustom);
+            return;
+        }
+
+        if (sanctionsManager.isEditingReason(player)) {
+            handleEditingReason(player, sanctionCustom, event.getMessage());
+        } else if (sanctionsManager.isEditingDuration(player)) {
+            handleEditingDuration(player, sanctionCustom, event.getMessage());
+        }
+
+        new CustomizeMenu(sanctionsManager, sanctionCustom.getTarget(), sanctionCustom).openMenu(player);
+    }
+
+    private void handleCancelEditing(Player player, SanctionCustom sanctionCustom) {
         sanctionsManager.removeEditingReason(player);
+        sanctionsManager.removeEditingDuration(player);
+
+        new CustomizeMenu(sanctionsManager, sanctionCustom.getTarget(), sanctionCustom).openMenu(player);
+    }
+
+    private void handleEditingReason(Player player, SanctionCustom sanctionCustom, String message) {
+        SenderUtil.sendMessage(player, Language.SANCTION_CUSTOMIZE_CHANGED_REASON
+                .replace("<from>", StringUtil.capitalizeFirstLetter(sanctionCustom.getReason()))
+                .replace("<to>", message));
+
+        sanctionCustom.setReason(message);
+        sanctionsManager.removeEditingReason(player);
+    }
+
+    private void handleEditingDuration(Player player, SanctionCustom sanctionCustom, String message) {
+        String duration = message.trim();
+
+        if (duration.equalsIgnoreCase("permanent") || duration.equalsIgnoreCase("perm")) {
+            handlePermanentDuration(player, sanctionCustom);
+            return;
+        }
+
+        if (!isValidDuration(duration)) {
+            SenderUtil.sendMessage(player, Language.SANCTION_CUSTOMIZE_INVALID_DURATION);
+            return;
+        }
+
+        SenderUtil.sendMessage(player, Language.SANCTION_CUSTOMIZE_CHANGED_DURATION
+                .replace("<from>", StringUtil.capitalizeFirstLetter(sanctionCustom.getDuration()))
+                .replace("<to>", duration));
+
+        sanctionCustom.setDuration(duration);
         sanctionsManager.removeEditingDuration(player);
     }
 
-    public boolean isValidDuration(String duration) {
+    private void handlePermanentDuration(Player player, SanctionCustom sanctionCustom) {
+        SenderUtil.sendMessage(player, Language.SANCTION_CUSTOMIZE_CHANGED_DURATION
+                .replace("<from>", StringUtil.capitalizeFirstLetter(sanctionCustom.getDuration()))
+                .replace("<to>", "Permanent"));
+
+        sanctionCustom.setDuration("PERMANENT");
+        sanctionsManager.removeEditingDuration(player);
+        new CustomizeMenu(sanctionsManager, sanctionCustom.getTarget(), sanctionCustom).openMenu(player);
+    }
+
+    private boolean isValidDuration(String duration) {
         String valid = "\\d+(s|second|seconds|m|minute|minutes|h|hour|hours|d|day|days|w|week|weeks|mo|month|months|y|year|years)";
 
         Pattern pattern = Pattern.compile(valid);
         Matcher matcher = pattern.matcher(duration);
 
         return matcher.matches();
+    }
+
+    private void clearEditingData(Player player) {
+        sanctionsManager.removeEditingReason(player);
+        sanctionsManager.removeEditingDuration(player);
     }
 }

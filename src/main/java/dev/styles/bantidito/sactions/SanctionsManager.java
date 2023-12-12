@@ -6,7 +6,6 @@ import dev.styles.bantidito.sactions.enums.SanctionType;
 import dev.styles.bantidito.sactions.variations.SanctionVariant;
 import dev.styles.bantidito.sactions.variations.SanctionVariantManager;
 import dev.styles.bantidito.utilities.SenderUtil;
-import dev.styles.bantidito.utilities.ServerUtil;
 import dev.styles.bantidito.utilities.StringUtil;
 import dev.styles.bantidito.utilities.item.ItemBuilder;
 import dev.styles.bantidito.Bantidito;
@@ -15,7 +14,12 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class SanctionsManager {
 
@@ -58,10 +62,7 @@ public class SanctionsManager {
                         .replace("<duration>", StringUtil.capitalizeFirstLetter(String.valueOf(duration)));
 
                 List<String> lore = pageSection.getStringList(sanction + ".ICON.LORE");
-                lore.replaceAll(line -> line
-                        .replace("<type>", StringUtil.capitalizeFirstLetter(String.valueOf(type)))
-                        .replace("<reason>", reason)
-                        .replace("<duration>", StringUtil.capitalizeFirstLetter(String.valueOf(duration))));
+                replaceVariables(lore, type, reason, duration);
 
                 ArrayList<SanctionVariant> variants = new ArrayList<>();
                 ConfigurationSection variantsSection = pageSection.getConfigurationSection(sanction + ".VARIATIONS");
@@ -74,48 +75,36 @@ public class SanctionsManager {
                 }
 
                 boolean isAdmittedSettings = pageSection.getConfigurationSection(sanction + ".ADMITTED_SETTINGS") != null;
-                if (isAdmittedSettings) {
-                    String admittedDuration = pageSection.getString(sanction + ".ADMITTED_SETTINGS.ADMITTED_DURATION");
-                    String unadmittedDuration = pageSection.getString(sanction + ".ADMITTED_SETTINGS.UNADMITTED_DURATION");
+                String admittedDuration = isAdmittedSettings ? pageSection.getString(sanction + ".ADMITTED_SETTINGS.ADMITTED_DURATION") : null;
+                String unadmittedDuration = isAdmittedSettings ? pageSection.getString(sanction + ".ADMITTED_SETTINGS.UNADMITTED_DURATION") : null;
 
-                    sanctions.add(new Sanction(
-                            slot,
-                            new ItemBuilder(material)
-                                    .setData(data)
-                                    .setDisplayName(displayName)
-                                    .setLore(lore)
-                                    .build(),
-                            sanction,
-                            type,
-                            reason,
-                            duration,
-                            variants,
-                            isAdmittedSettings,
-                            admittedDuration,
-                            unadmittedDuration));
-                } else {
-                    sanctions.add(new Sanction(
-                            slot,
-                            new ItemBuilder(material)
-                                    .setData(data)
-                                    .setDisplayName(displayName)
-                                    .setLore(lore)
-                                    .build(),
-                            sanction,
-                            type,
-                            reason,
-                            duration,
-                            variants,
-                            isAdmittedSettings,
-                            null,
-                            null
-                    ));
-                }
+                sanctions.add(new Sanction(
+                        slot,
+                        new ItemBuilder(material)
+                                .setData(data)
+                                .setDisplayName(displayName)
+                                .setLore(lore)
+                                .build(),
+                        sanction,
+                        type,
+                        reason,
+                        duration,
+                        variants,
+                        isAdmittedSettings,
+                        admittedDuration,
+                        unadmittedDuration));
             }
 
             sanctionPages.add(new SanctionPage(pageId, new HashSet<>(sanctions)));
             sanctions.clear();
         }
+    }
+
+    private void replaceVariables(List<String> list, SanctionType type, String reason, String duration) {
+        list.replaceAll(line -> line
+                .replace("<type>", StringUtil.capitalizeFirstLetter(String.valueOf(type)))
+                .replace("<reason>", reason)
+                .replace("<duration>", StringUtil.capitalizeFirstLetter(String.valueOf(duration))));
     }
 
     public void onReload() {
@@ -125,13 +114,10 @@ public class SanctionsManager {
     }
 
     public SanctionPage getSanctionPage(int page) {
-        for (SanctionPage sanctionPage : sanctionPages) {
-            if (sanctionPage.getPage() == page) {
-                return sanctionPage;
-            }
-        }
-
-        return null;
+        return sanctionPages.stream()
+                .filter(sanctionPage -> sanctionPage.getPage() == page)
+                .findFirst()
+                .orElse(null);
     }
 
     public void setEditingReason(Player player, SanctionCustom sanctionCustom) {

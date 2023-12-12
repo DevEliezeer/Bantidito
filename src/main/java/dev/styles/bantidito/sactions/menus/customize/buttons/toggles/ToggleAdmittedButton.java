@@ -5,24 +5,16 @@ import dev.styles.bantidito.sactions.SanctionsManager;
 import dev.styles.bantidito.utilities.item.ItemBuilder;
 import dev.styles.bantidito.utilities.menu.Button;
 import dev.styles.bantidito.sactions.SanctionCustom;
+import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
+@RequiredArgsConstructor
 public class ToggleAdmittedButton extends Button {
 
     private final SanctionsManager sanctionsManager;
     private final SanctionCustom sanctionCustom;
-
-    public ToggleAdmittedButton(SanctionsManager sanctionsManager, SanctionCustom sanctionCustom) {
-        this.sanctionsManager = sanctionsManager;
-        this.sanctionCustom = sanctionCustom;
-
-/*        if (sanctionCustom.isAdmittedSettings()) {
-            this.admittedDuration = Config.SANCTIONS.getString(sanctionCustom.getName() + ".ADMITTED_SETTINGS.ADMITTED_DURATION");
-            this.unadmittedDuration = Config.SANCTIONS.getString(sanctionCustom.getName() + ".ADMITTED_SETTINGS.UNADMITTED_DURATION");
-        }*/
-    }
 
     @Override
     public ItemStack getButtonItem(Player player) {

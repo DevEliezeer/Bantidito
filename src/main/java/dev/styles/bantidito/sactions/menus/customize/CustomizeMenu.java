@@ -70,9 +70,9 @@ public class CustomizeMenu extends Menu {
 
         buttons.put(Config.CUSTOMIZE_SANCTION_INFO_SLOT, new SanctionInfoButton(sanctionsManager, target, sanctionCustom));
 
-        buttons.put(Config.CUSTOMIZE_CHANGE_REASON_BUTTON_SLOT, new ChangeReasonButton(sanctionsManager, target, sanctionCustom));
-        buttons.put(Config.CUSTOMIZE_CHANGE_DURATION_BUTTON_SLOT, new ChangeDurationButton(sanctionsManager, target, sanctionCustom));
-        buttons.put(Config.CUSTOMIZE_CHANGE_VARIATION_BUTTON_SLOT, new ChangeVariationButton(sanctionsManager, sanctionVariantManager, target, sanctionCustom));
+        buttons.put(Config.CUSTOMIZE_CHANGE_REASON_BUTTON_SLOT, new ChangeReasonButton(sanctionsManager, sanctionCustom));
+        buttons.put(Config.CUSTOMIZE_CHANGE_DURATION_BUTTON_SLOT, new ChangeDurationButton(sanctionsManager, sanctionCustom));
+        buttons.put(Config.CUSTOMIZE_CHANGE_VARIATION_BUTTON_SLOT, new ChangeVariationButton(sanctionVariantManager, sanctionCustom));
 
         if (sanctionCustom.isAdmittedSettings()) {
             buttons.put(Config.CUSTOMIZE_TOGGLE_ADMITTED_BUTTON_SLOT, new ToggleAdmittedButton(sanctionsManager, sanctionCustom));

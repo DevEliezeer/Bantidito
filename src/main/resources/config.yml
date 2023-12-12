@@ -4,10 +4,8 @@ LICENSE_KEY: "PUT-HERE-YOUR-LICENSE-KEY"
 # Command Settings
 COMMAND_SETTINGS:
   NAME: "sanction"
-  PERMISSION: litebans.ban
+  PERMISSION: bantidito.sanction
   ALIASES:
-    - "sancion"
-    - "sancionar"
     - "bangui"
 
 # Sanction Settings

@@ -28,8 +28,8 @@ public class BantiditoCommand extends BaseCommand {
 
             try {
                 plugin.onReload();
-            } catch (Exception exception) {
-                exception.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 SenderUtil.sendMessage(sender, "&cAn error occurred while reloading the configuration files.");
                 return;
             }

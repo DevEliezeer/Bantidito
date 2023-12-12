@@ -19,7 +19,6 @@ public class ChangeDurationButton extends Button {
 
     private final SanctionsManager sanctionsManager;
 
-    private final String target;
     private final SanctionCustom sanctionCustom;
 
     @Override

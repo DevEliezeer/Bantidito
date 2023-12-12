@@ -18,7 +18,6 @@ public class ChangeReasonButton extends Button {
 
     private final SanctionsManager sanctionsManager;
 
-    private final String target;
     private final SanctionCustom sanctionCustom;
 
     @Override

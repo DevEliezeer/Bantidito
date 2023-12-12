@@ -14,13 +14,11 @@ import org.bukkit.inventory.ItemStack;
 
 public class NextPageButton extends Button {
 
-    private final SanctionsMenu sanctionsMenu;
     private final SanctionsManager sanctionsManager;
     private final SanctionPage sanctionPage;
     private final String target;
 
     public NextPageButton(SanctionsMenu sanctionsMenu) {
-        this.sanctionsMenu = sanctionsMenu;
         this.sanctionsManager = sanctionsMenu.getSanctionsManager();
         this.sanctionPage = sanctionsMenu.getSanctionPage();
         this.target = sanctionsMenu.getTarget();

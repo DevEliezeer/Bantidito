@@ -42,9 +42,7 @@ public final class Bantidito extends JavaPlugin {
         loadFiles();
         License license = new License(URI.create("http://89.46.2.47:3000/api/client"), Config.LICENSE_KEY, getDescription().getName(), getDescription().getVersion(), "qdt7yw00HjQPIsY", null);
         if (license.check()) {
-        //if (true) {
             if (license.isValid()) {
-            //if (true) {
                 ServerUtil.logger(new String[]{
                         "",
                         "&aThe license was successfully validated",
@@ -59,8 +57,8 @@ public final class Bantidito extends JavaPlugin {
                     loadManagers();
                     loadListeners();
                     loadCommands();
-                } catch (Exception exception) {
-                    exception.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
 
                     ServerUtil.logger(new String[]{
                             "",

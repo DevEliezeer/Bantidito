@@ -77,7 +77,7 @@ public class License {
             valid = true;
             return true;
 
-        } catch (Exception exception) {
+        } catch (Exception e) {
             ServerUtil.logger(new String[]{
                     "",
                     "&cAn error occurred while connecting to the license server",

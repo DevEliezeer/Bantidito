@@ -4,9 +4,9 @@ import dev.styles.bantidito.config.Config;
 import dev.styles.bantidito.sactions.variations.SanctionVariant;
 import dev.styles.bantidito.sactions.variations.SanctionVariantManager;
 import dev.styles.bantidito.sactions.SanctionCustom;
-import dev.styles.bantidito.sactions.SanctionsManager;
 import dev.styles.bantidito.utilities.item.ItemBuilder;
 import dev.styles.bantidito.utilities.menu.Button;
+import lombok.RequiredArgsConstructor;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
@@ -16,20 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 public class ChangeVariationButton extends Button {
 
-    private final SanctionsManager sanctionsManager;
     private final SanctionVariantManager sanctionVariantManager;
-
-    private final String target;
     private final SanctionCustom sanction;
-
-    public ChangeVariationButton(SanctionsManager sanctionsManager, SanctionVariantManager sanctionVariantManager, String target, SanctionCustom sanction) {
-        this.sanctionsManager = sanctionsManager;
-        this.sanctionVariantManager = sanctionVariantManager;
-        this.target = target;
-        this.sanction = sanction;
-    }
 
     @Override
     public ItemStack getButtonItem(Player player) {

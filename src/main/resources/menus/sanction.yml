@@ -66,11 +66,37 @@ SANCTIONS_PAGES:
   PAGE_1:
     PAGE: 1
     SANCTIONS:
-      CHEATS:
-        SLOT: 9
+      WARN_EXAMPLE:
+        SLOT: 12
+        TYPE: WARN
+        REASON: "Warn Example"
+        DURATION: Permanent
+        ICON:
+          MATERIAL: SIGN
+          DATA: 0
+          DISPLAY_NAME: "&3&l<reason> &7(<duration>)"
+          LORE:
+            - "&8<type> Sanction"
+            - ""
+            - " &7┃ &fType&7: &3<type>"
+            - ""
+            - " &7┃ &fReason&7: &3<reason>"
+            - " &7┃ &fDuration&7: &3<duration>"
+            - ""
+            - "&eLeft click to sanction!"
+            - "&eRight click to customize!"
+        VARIATIONS: # Remove this section to disable sanction variations
+          EXAMPLE_1:
+            DISPLAY: "&7(Example 1)"
+          EXAMPLE_2:
+            DISPLAY: "&7(Example 2)"
+          EXAMPLE_3:
+            DISPLAY: "&7(Example 3)"
+      BAN_EXAMPLE:
+        SLOT: 13
         TYPE: BAN
-        REASON: "Cheats"
-        DURATION: 17d
+        REASON: "Ban Example"
+        DURATION: 5d
         ICON:
           MATERIAL: BOOK
           DATA: 0
@@ -86,44 +112,22 @@ SANCTIONS_PAGES:
             - "&eLeft click to sanction!"
             - "&eRight click to customize!"
         ADMITTED_SETTINGS: # Remove this section to disable sanction admitted settings
-          ADMITTED_DURATION: 7d
-          UNADMITTED_DURATION: 17d
+          ADMITTED_DURATION: 1d
+          UNADMITTED_DURATION: 5d
         VARIATIONS: # Remove this section to disable sanction variations
-          AUTO_CLICK:
-            DISPLAY: "&7(Auto Click)"
-          HACKED_CLIENT:
-            DISPLAY: "&7(Hacked Client)"
-          GHOST_CLIENT:
-            DISPLAY: "&7(Ghost Client)"
-  PAGE_2:
-    PAGE: 2
-    SANCTIONS:
-      DTR_EVADING:
-        SLOT: 9
-        TYPE: BAN
-        REASON: "DTR Evading"
-        DURATION: 6h
-        ICON:
-          MATERIAL: BOOK
-          DATA: 0
-          DISPLAY_NAME: "&3&l<reason> &7(<duration>)"
-          LORE:
-            - "&8<type> Sanction"
-            - ""
-            - " &7┃ &fType&7: &3<type>"
-            - ""
-            - " &7┃ &fReason&7: &3<reason>"
-            - " &7┃ &fDuration&7: &3<duration>"
-            - ""
-            - "&eLeft click to sanction!"
-            - "&eRight click to customize!"
-      BAN_EVADING:
-        SLOT: 10
-        TYPE: BAN
-        REASON: "Ban Evading"
+          EXAMPLE_1:
+            DISPLAY: "&7(Example 1)"
+          EXAMPLE_2:
+            DISPLAY: "&7(Example 2)"
+          EXAMPLE_3:
+            DISPLAY: "&7(Example 3)"
+      MUTE_EXAMPLE:
+        SLOT: 14
+        TYPE: MUTE
+        REASON: "Mute Example"
         DURATION: Permanent
         ICON:
-          MATERIAL: BOOK
+          MATERIAL: PAPER
           DATA: 0
           DISPLAY_NAME: "&3&l<reason> &7(<duration>)"
           LORE:
@@ -136,3 +140,10 @@ SANCTIONS_PAGES:
             - ""
             - "&eLeft click to sanction!"
             - "&eRight click to customize!"
+        VARIATIONS: # Remove this section to disable sanction variations
+          EXAMPLE_1:
+            DISPLAY: "&7(Example 1)"
+          EXAMPLE_2:
+            DISPLAY: "&7(Example 2)"
+          EXAMPLE_3:
+            DISPLAY: "&7(Example 3)"
