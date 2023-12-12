@@ -2,6 +2,10 @@
 SANCTION_COMMAND:
   CORRECT_USAGE: "&cUsage: /<command> <player>"
 
+SANCTION_MENU:
+  NEXT_PAGE_LIMIT: "You have reached the limit of next pages."
+  PREVIOUS_PAGE_LIMIT: "&cYou have reached the limit of previous pages."
+
 SANCTION_CUSTOMIZE:
   EDITING_REASON: "&eYou're now editing the reason for the sanction. Type '&ccancel&e' in the chat to cancel the process."
   EDITING_DURATION: "&eYou're now editing the duration for the sanction. Type '&ccancel&e' in the chat to cancel the process."

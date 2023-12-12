@@ -24,15 +24,15 @@ SANCTION_INFO:
     MATERIAL: SKULL_ITEM
     DATA: 3
     HEAD: "<target>"
-    DISPLAY_NAME: "&dSanction Info"
+    DISPLAY_NAME: "&3Sanction Info"
     LORE:
       - "&8<type> Sanction"
       - ""
-      - " &7┃ &fPlayer&7: &d<target>"
+      - " &7┃ &fPlayer&7: &3<target>"
       - ""
-      - " &7┃ &fType&7: &d<type>"
-      - " &7┃ &fReason&7: &d<reason>"
-      - " &7┃ &fDuration&7: &d<duration>"
+      - " &7┃ &fType&7: &3<type>"
+      - " &7┃ &fReason&7: &3<reason>"
+      - " &7┃ &fDuration&7: &3<duration>"
       - ""
       - "&eClick to customize!"
 

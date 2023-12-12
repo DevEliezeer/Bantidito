@@ -111,6 +111,20 @@ public class Config {
     public static int SANCTIONS_REFILL_DATA;
     public static List<Integer> SANCTIONS_REFILL_SLOTS;
 
+    public static boolean SANCTIONS_PREVIOUS_PAGE_BUTTON_ENABLED;
+    public static int SANCTIONS_PREVIOUS_PAGE_BUTTON_SLOT;
+    public static String SANCTIONS_PREVIOUS_PAGE_BUTTON_ICON_MATERIAL;
+    public static int SANCTIONS_PREVIOUS_PAGE_BUTTON_ICON_DATA;
+    public static String SANCTIONS_PREVIOUS_PAGE_BUTTON_ICON_DISPLAY_NAME;
+    public static List<String> SANCTIONS_PREVIOUS_PAGE_BUTTON_ICON_LORE;
+
+    public static boolean SANCTIONS_NEXT_PAGE_BUTTON_ENABLED;
+    public static int SANCTIONS_NEXT_PAGE_BUTTON_SLOT;
+    public static String SANCTIONS_NEXT_PAGE_BUTTON_ICON_MATERIAL;
+    public static int SANCTIONS_NEXT_PAGE_BUTTON_ICON_DATA;
+    public static String SANCTIONS_NEXT_PAGE_BUTTON_ICON_DISPLAY_NAME;
+    public static List<String> SANCTIONS_NEXT_PAGE_BUTTON_ICON_LORE;
+
     public static int SANCTIONS_PLAYER_INFO_SLOT;
     public static String SANCTIONS_PLAYER_INFO_ICON_MATERIAL;
     public static int SANCTIONS_PLAYER_INFO_ICON_DATA;
@@ -118,7 +132,7 @@ public class Config {
     public static String SANCTIONS_PLAYER_INFO_ICON_DISPLAY_NAME;
     public static List<String> SANCTIONS_PLAYER_INFO_ICON_LORE;
 
-    public static ConfigurationSection SANCTIONS;
+    public static ConfigurationSection SANCTIONS_PAGES;
 
     public Config(Bantidito plugin, Map<String, FileConfig> files) {
         files.put("config", new FileConfig(plugin, "config.yml"));
@@ -232,6 +246,20 @@ public class Config {
         SANCTIONS_REFILL_DATA = sanctionFile.getInt("MENU_REFILL.DATA");
         SANCTIONS_REFILL_SLOTS = sanctionFile.getIntList("MENU_REFILL.SLOTS");
 
+        SANCTIONS_PREVIOUS_PAGE_BUTTON_ENABLED = sanctionFile.getBoolean("PREVIOUS_PAGE_BUTTON.ENABLED");
+        SANCTIONS_PREVIOUS_PAGE_BUTTON_SLOT = sanctionFile.getInt("PREVIOUS_PAGE_BUTTON.SLOT");
+        SANCTIONS_PREVIOUS_PAGE_BUTTON_ICON_MATERIAL = sanctionFile.getString("PREVIOUS_PAGE_BUTTON.ICON.MATERIAL");
+        SANCTIONS_PREVIOUS_PAGE_BUTTON_ICON_DATA = sanctionFile.getInt("PREVIOUS_PAGE_BUTTON.ICON.DATA");
+        SANCTIONS_PREVIOUS_PAGE_BUTTON_ICON_DISPLAY_NAME = sanctionFile.getString("PREVIOUS_PAGE_BUTTON.ICON.DISPLAY_NAME");
+        SANCTIONS_PREVIOUS_PAGE_BUTTON_ICON_LORE = sanctionFile.getStringList("PREVIOUS_PAGE_BUTTON.ICON.LORE");
+
+        SANCTIONS_NEXT_PAGE_BUTTON_ENABLED = sanctionFile.getBoolean("NEXT_PAGE_BUTTON.ENABLED");
+        SANCTIONS_NEXT_PAGE_BUTTON_SLOT = sanctionFile.getInt("NEXT_PAGE_BUTTON.SLOT");
+        SANCTIONS_NEXT_PAGE_BUTTON_ICON_MATERIAL = sanctionFile.getString("NEXT_PAGE_BUTTON.ICON.MATERIAL");
+        SANCTIONS_NEXT_PAGE_BUTTON_ICON_DATA = sanctionFile.getInt("NEXT_PAGE_BUTTON.ICON.DATA");
+        SANCTIONS_NEXT_PAGE_BUTTON_ICON_DISPLAY_NAME = sanctionFile.getString("NEXT_PAGE_BUTTON.ICON.DISPLAY_NAME");
+        SANCTIONS_NEXT_PAGE_BUTTON_ICON_LORE = sanctionFile.getStringList("NEXT_PAGE_BUTTON.ICON.LORE");
+
         SANCTIONS_PLAYER_INFO_SLOT = sanctionFile.getInt("PLAYER_INFO.SLOT");
         SANCTIONS_PLAYER_INFO_ICON_MATERIAL = sanctionFile.getString("PLAYER_INFO.ICON.MATERIAL");
         SANCTIONS_PLAYER_INFO_ICON_DATA = sanctionFile.getInt("PLAYER_INFO.ICON.DATA");
@@ -239,6 +267,6 @@ public class Config {
         SANCTIONS_PLAYER_INFO_ICON_DISPLAY_NAME = sanctionFile.getString("PLAYER_INFO.ICON.DISPLAY_NAME");
         SANCTIONS_PLAYER_INFO_ICON_LORE = sanctionFile.getStringList("PLAYER_INFO.ICON.LORE");
 
-        SANCTIONS = sanctionFile.getConfigurationSection("SANCTIONS");
+        SANCTIONS_PAGES = sanctionFile.getConfigurationSection("SANCTIONS_PAGES");
     }
 }

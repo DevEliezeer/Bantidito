@@ -28,6 +28,6 @@ public class DeclineButton extends Button {
     @Override
     public void clicked(Player player, int slot, ClickType clickType, int hotbarButton) {
         playFail(player);
-        new SanctionsMenu(target, sanctionsManager).openMenu(player);
+        new SanctionsMenu(sanctionsManager.getSanctionPage(1), target, sanctionsManager).openMenu(player);
     }
 }

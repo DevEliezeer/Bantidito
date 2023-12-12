@@ -10,10 +10,12 @@ import dev.styles.bantidito.utilities.ServerUtil;
 import dev.styles.bantidito.utilities.command.CommandManager;
 import dev.styles.bantidito.utilities.file.FileConfig;
 import dev.styles.bantidito.utilities.menu.listener.ButtonListener;
+import dev.styles.bantidito.utilities.plugin.License;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,39 +32,57 @@ public final class Bantidito extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        ServerUtil.logger("");
-        ServerUtil.logger("       &3&lBantidito&7 - " + getDescription().getVersion());
-        ServerUtil.logger("");
-        ServerUtil.logger("&aConnecting to the license server...");
+        ServerUtil.logger(new String[]{
+                "",
+                "       &3&lBantidito&7 - " + getDescription().getVersion(),
+                "",
+                "&aConnecting to the license server..."
+        });
 
-        if (true) {
-            try {
-                ServerUtil.logger("");
-                ServerUtil.logger("&aThe license was successfully validated");
-                ServerUtil.logger("&aEnabling Bantidito...");
-                ServerUtil.logger("");
+        loadFiles();
+        License license = new License(URI.create("http://89.46.2.47:3000/api/client"), Config.LICENSE_KEY, getDescription().getName(), getDescription().getVersion(), "qdt7yw00HjQPIsY", null);
+        if (license.check()) {
+        //if (true) {
+            if (license.isValid()) {
+            //if (true) {
+                ServerUtil.logger(new String[]{
+                        "",
+                        "&aThe license was successfully validated",
+                        "&aEnabling Bantidito...",
+                        "",
+                        "&3Discord Name&7: &f" + license.getDiscordName(),
+                        "&3Discord ID&7: &f" + license.getDiscordID(),
+                        ""
+                });
 
-                loadFiles();
-                loadManagers();
-                loadListeners();
-                loadCommands();
-            } catch (Exception exception) {
-                exception.printStackTrace();
+                try {
+                    loadManagers();
+                    loadListeners();
+                    loadCommands();
+                } catch (Exception exception) {
+                    exception.printStackTrace();
 
-                ServerUtil.logger("");
-                ServerUtil.logger("&cAn unexpected error occurred while enabling the plugin");
-                ServerUtil.logger("&cDisabling Bantidito...");
-                ServerUtil.logger("");
+                    ServerUtil.logger(new String[]{
+                            "",
+                            "&cAn unexpected error occurred while enabling the plugin",
+                            "&cDisabling Bantidito...",
+                            ""
+                    });
+                }
+            } else {
+                ServerUtil.logger(new String[]{
+                        "",
+                        "&cInvalid license, open a ticket to claim your license",
+                        "&cDisabling Bantidito...",
+                        ""
+                });
             }
-        } else {
-            ServerUtil.logger("");
-            ServerUtil.logger("&cThe license is invalid.");
-            ServerUtil.logger("&cDisabling Bantidito...");
-            ServerUtil.logger("");
         }
 
-        ServerUtil.logger("  &7&oStyles Development @ discord.styles.dev");
-        ServerUtil.logger("");
+        ServerUtil.logger(new String[]{
+                "  &7&oStyles Development @ discord.styles.dev",
+                ""
+        });
     }
 
     @Override

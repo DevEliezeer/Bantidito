@@ -14,17 +14,14 @@ public class ToggleAdmittedButton extends Button {
     private final SanctionsManager sanctionsManager;
     private final SanctionCustom sanctionCustom;
 
-    private String admittedDuration;
-    private String unadmittedDuration;
-
     public ToggleAdmittedButton(SanctionsManager sanctionsManager, SanctionCustom sanctionCustom) {
         this.sanctionsManager = sanctionsManager;
         this.sanctionCustom = sanctionCustom;
 
-        if (sanctionCustom.isAdmittedSettings()) {
+/*        if (sanctionCustom.isAdmittedSettings()) {
             this.admittedDuration = Config.SANCTIONS.getString(sanctionCustom.getName() + ".ADMITTED_SETTINGS.ADMITTED_DURATION");
             this.unadmittedDuration = Config.SANCTIONS.getString(sanctionCustom.getName() + ".ADMITTED_SETTINGS.UNADMITTED_DURATION");
-        }
+        }*/
     }
 
     @Override
@@ -53,10 +50,10 @@ public class ToggleAdmittedButton extends Button {
         playNeutral(player);
         if (!sanctionsManager.isAdmittedToggle(player)) {
             sanctionsManager.setAdmittedToggle(player);
-            sanctionCustom.setDuration(admittedDuration);
+            sanctionCustom.setDuration(sanctionCustom.getAdmittedDuration());
         } else {
             sanctionsManager.removeAdmittedToggle(player);
-            sanctionCustom.setDuration(unadmittedDuration);
+            sanctionCustom.setDuration(sanctionCustom.getUnadmittedDuration());
         }
     }
 }

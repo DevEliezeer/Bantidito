@@ -11,6 +11,9 @@ public class Language {
 
     public static String SANCTION_COMMAND_CORRECT_USAGE;
 
+    public static String SANCTION_MENU_NEXT_PAGE_LIMIT;
+    public static String SANCTION_MENU_PREVIOUS_PAGE_LIMIT;
+
     public static String SANCTION_CUSTOMIZE_EDITING_REASON;
     public static String SANCTION_CUSTOMIZE_EDITING_DURATION;
     public static String SANCTION_CUSTOMIZE_CHANGED_REASON;
@@ -27,6 +30,9 @@ public class Language {
         languageFile = files.get("language");
 
         SANCTION_COMMAND_CORRECT_USAGE = languageFile.getString("SANCTION_COMMAND.CORRECT_USAGE");
+
+        SANCTION_MENU_NEXT_PAGE_LIMIT = languageFile.getString("SANCTION_MENU.NEXT_PAGE_LIMIT");
+        SANCTION_MENU_PREVIOUS_PAGE_LIMIT = languageFile.getString("SANCTION_MENU.PREVIOUS_PAGE_LIMIT");
 
         SANCTION_CUSTOMIZE_EDITING_REASON = languageFile.getString("SANCTION_CUSTOMIZE.EDITING_REASON");
         SANCTION_CUSTOMIZE_EDITING_DURATION = languageFile.getString("SANCTION_CUSTOMIZE.EDITING_DURATION");

@@ -59,7 +59,7 @@ public class CustomizeMenu extends Menu {
         }
 
         if (Config.CUSTOMIZE_BACK_BUTTON_ENABLED) {
-            buttons.put(Config.CUSTOMIZE_BACK_BUTTON_SLOT, new BackButton(new SanctionsMenu(target, sanctionsManager), new ItemBuilder(
+            buttons.put(Config.CUSTOMIZE_BACK_BUTTON_SLOT, new BackButton(new SanctionsMenu(sanctionsManager.getSanctionPage(1), target, sanctionsManager), new ItemBuilder(
                     Config.CUSTOMIZE_BACK_BUTTON_ICON_MATERIAL)
                     .setData(Config.CUSTOMIZE_BACK_BUTTON_ICON_DATA)
                     .setDisplayName(Config.CUSTOMIZE_BACK_BUTTON_ICON_DISPLAY_NAME)

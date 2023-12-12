@@ -32,7 +32,9 @@ public class SanctionButton extends Button {
                 sanction.getReason(),
                 sanction.getDuration(),
                 sanction.getVariations(),
-                sanction.isAdmittedSettings()
+                sanction.isAdmittedSettings(),
+                sanction.getAdmittedDuration(),
+                sanction.getUnadmittedDuration()
         );
     }
 

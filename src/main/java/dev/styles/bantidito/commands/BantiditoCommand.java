@@ -20,22 +20,7 @@ public class BantiditoCommand extends BaseCommand {
         CommandSender sender = command.getSender();
         String[] args = command.getArgs();
 
-        if (args.length == 0) {
-            sender.sendMessage(ColorUtil.translate(new String[]{
-                    "",
-                    "     &3&lBantidito &7- " + plugin.getDescription().getVersion(),
-                    "",
-                    " &7● &fVersion&7: &3" + plugin.getDescription().getVersion(),
-                    " &7● &fAuthor&7: &3" + plugin.getDescription().getAuthors(),
-                    "",
-                    " &7&oStyles Development @ styles.dev",
-                    ""
-            }));
-
-            return;
-        }
-
-        if (args[0].equalsIgnoreCase("reload")) {
+        if (args.length != 0 && args[0].equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("bantidito.reload")) {
                 SenderUtil.sendMessage(sender, "&cYou dont have permissions to execute this command.");
                 return;
@@ -50,6 +35,18 @@ public class BantiditoCommand extends BaseCommand {
             }
 
             SenderUtil.sendMessage(sender, "&aAll config files were successfully reloaded.");
+            return;
         }
+
+        sender.sendMessage(ColorUtil.translate(new String[]{
+                "",
+                "     &3&lBantidito &7- " + plugin.getDescription().getVersion(),
+                "",
+                " &7● &fVersion&7: &3" + plugin.getDescription().getVersion(),
+                " &7● &fAuthor&7: &3" + plugin.getDescription().getAuthors(),
+                "",
+                " &7&oStyles Development @ styles.dev",
+                ""
+        }));
     }
 }

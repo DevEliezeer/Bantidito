@@ -11,7 +11,6 @@ import dev.styles.bantidito.utilities.StringUtil;
 import dev.styles.bantidito.utilities.item.ItemBuilder;
 import dev.styles.bantidito.Bantidito;
 import lombok.Getter;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -25,6 +24,7 @@ public class SanctionsManager {
     @Getter private final SanctionVariantManager sanctionVariantManager;
 
     @Getter private final Set<Sanction> sanctions;
+    @Getter private final Set<SanctionPage> sanctionPages;
     @Getter private final Map<Player, SanctionCustom> editingPlayers;
     @Getter private final Set<Player> admittedToggles;
 
@@ -32,6 +32,7 @@ public class SanctionsManager {
         this.plugin = plugin;
         this.sanctionVariantManager = new SanctionVariantManager();
         this.sanctions = new HashSet<>();
+        this.sanctionPages = new HashSet<>();
         this.editingPlayers = new HashMap<>();
         this.admittedToggles = new HashSet<>();
 
@@ -39,57 +40,98 @@ public class SanctionsManager {
     }
 
     private void loadSanctions() {
-        for (String sanction : Config.SANCTIONS.getKeys(false)) {
-            int slot = Config.SANCTIONS.getInt(sanction + ".SLOT");
-            SanctionType type = SanctionType.valueOf(Config.SANCTIONS.getString(sanction + ".TYPE"));
-            String reason = Config.SANCTIONS.getString(sanction + ".REASON");
-            String duration = Config.SANCTIONS.getString(sanction + ".DURATION");
+        for (String page : Config.SANCTIONS_PAGES.getKeys(false)) {
+            int pageId = Config.SANCTIONS_PAGES.getInt(page + ".PAGE");
 
-            String material = Config.SANCTIONS.getString(sanction + ".ICON.MATERIAL");
-            int data = Config.SANCTIONS.getInt(sanction + ".ICON.DATA");
-            String displayName = Config.SANCTIONS.getString(sanction + ".ICON.DISPLAY_NAME")
-                    .replace("<type>", StringUtil.capitalizeFirstLetter(String.valueOf(type)))
-                    .replace("<reason>", reason)
-                    .replace("<duration>", StringUtil.capitalizeFirstLetter(String.valueOf(duration)));
+            ConfigurationSection pageSection = Config.SANCTIONS_PAGES.getConfigurationSection(page + ".SANCTIONS");
+            for (String sanction : pageSection.getKeys(false)) {
+                int slot = pageSection.getInt(sanction + ".SLOT");
+                SanctionType type = SanctionType.valueOf(pageSection.getString(sanction + ".TYPE"));
+                String reason = pageSection.getString(sanction + ".REASON");
+                String duration = pageSection.getString(sanction + ".DURATION");
 
-            List<String> lore = Config.SANCTIONS.getStringList(sanction + ".ICON.LORE");
-            lore.replaceAll(line -> line
-                    .replace("<type>", StringUtil.capitalizeFirstLetter(String.valueOf(type)))
-                    .replace("<reason>", reason)
-                    .replace("<duration>", StringUtil.capitalizeFirstLetter(String.valueOf(duration))));
+                String material = pageSection.getString(sanction + ".ICON.MATERIAL");
+                int data = pageSection.getInt(sanction + ".ICON.DATA");
+                String displayName = pageSection.getString(sanction + ".ICON.DISPLAY_NAME")
+                        .replace("<type>", StringUtil.capitalizeFirstLetter(String.valueOf(type)))
+                        .replace("<reason>", reason)
+                        .replace("<duration>", StringUtil.capitalizeFirstLetter(String.valueOf(duration)));
 
-            ArrayList<SanctionVariant> variants = new ArrayList<>();
-            ConfigurationSection variantsSection = Config.SANCTIONS.getConfigurationSection(sanction + ".VARIATIONS");
-            if (variantsSection != null) {
-                for (String variant : variantsSection.getKeys(false)) {
-                    if (variant != null) {
-                        variants.add(new SanctionVariant(variantsSection.getString(variant + ".DISPLAY")));
+                List<String> lore = pageSection.getStringList(sanction + ".ICON.LORE");
+                lore.replaceAll(line -> line
+                        .replace("<type>", StringUtil.capitalizeFirstLetter(String.valueOf(type)))
+                        .replace("<reason>", reason)
+                        .replace("<duration>", StringUtil.capitalizeFirstLetter(String.valueOf(duration))));
+
+                ArrayList<SanctionVariant> variants = new ArrayList<>();
+                ConfigurationSection variantsSection = pageSection.getConfigurationSection(sanction + ".VARIATIONS");
+                if (variantsSection != null) {
+                    for (String variant : variantsSection.getKeys(false)) {
+                        if (variant != null) {
+                            variants.add(new SanctionVariant(variantsSection.getString(variant + ".DISPLAY")));
+                        }
                     }
+                }
+
+                boolean isAdmittedSettings = pageSection.getConfigurationSection(sanction + ".ADMITTED_SETTINGS") != null;
+                if (isAdmittedSettings) {
+                    String admittedDuration = pageSection.getString(sanction + ".ADMITTED_SETTINGS.ADMITTED_DURATION");
+                    String unadmittedDuration = pageSection.getString(sanction + ".ADMITTED_SETTINGS.UNADMITTED_DURATION");
+
+                    sanctions.add(new Sanction(
+                            slot,
+                            new ItemBuilder(material)
+                                    .setData(data)
+                                    .setDisplayName(displayName)
+                                    .setLore(lore)
+                                    .build(),
+                            sanction,
+                            type,
+                            reason,
+                            duration,
+                            variants,
+                            isAdmittedSettings,
+                            admittedDuration,
+                            unadmittedDuration));
+                } else {
+                    sanctions.add(new Sanction(
+                            slot,
+                            new ItemBuilder(material)
+                                    .setData(data)
+                                    .setDisplayName(displayName)
+                                    .setLore(lore)
+                                    .build(),
+                            sanction,
+                            type,
+                            reason,
+                            duration,
+                            variants,
+                            isAdmittedSettings,
+                            null,
+                            null
+                    ));
                 }
             }
 
-            boolean isAdmittedSettings = Config.SANCTIONS.getConfigurationSection(sanction + ".ADMITTED_SETTINGS") != null;
-
-            sanctions.add(new Sanction(
-                    slot,
-                    new ItemBuilder(material)
-                            .setData(data)
-                            .setDisplayName(displayName)
-                            .setLore(lore)
-                            .build(),
-                    sanction,
-                    type,
-                    reason,
-                    duration,
-                    variants,
-                    isAdmittedSettings
-            ));
+            sanctionPages.add(new SanctionPage(pageId, new HashSet<>(sanctions)));
+            sanctions.clear();
         }
     }
 
     public void onReload() {
         sanctions.clear();
+        sanctionPages.clear();
         loadSanctions();
+    }
+
+    public SanctionPage getSanctionPage(int page) {
+        for (SanctionPage sanctionPage : sanctionPages) {
+            if (sanctionPage.getPage() == page) {
+                return sanctionPage;
+            }
+        }
+
+        return null;
     }
 
     public void setEditingReason(Player player, SanctionCustom sanctionCustom) {

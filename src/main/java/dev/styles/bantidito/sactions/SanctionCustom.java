@@ -25,6 +25,8 @@ public class SanctionCustom {
     private ArrayList<SanctionVariant> variations;
 
     private boolean admittedSettings;
+    private String admittedDuration;
+    private String unadmittedDuration;
 
     public void sanctionPlayer(Player player, String target) {
         switch (type) {

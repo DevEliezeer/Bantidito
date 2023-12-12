@@ -29,7 +29,7 @@ public class SanctionCommand extends BaseCommand {
             return;
         }
 
-        SanctionsMenu sanctionsMenu = new SanctionsMenu(args[0], sanctionsManager);
+        SanctionsMenu sanctionsMenu = new SanctionsMenu(sanctionsManager.getSanctionPage(1), args[0], sanctionsManager);
         sanctionsMenu.openMenu(sender);
     }
 }

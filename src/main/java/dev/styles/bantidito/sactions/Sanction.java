@@ -19,5 +19,8 @@ public class Sanction {
     private final String reason;
     private final String duration;
     private final ArrayList<SanctionVariant> variations;
+
     private final boolean admittedSettings;
+    private final String admittedDuration;
+    private final String unadmittedDuration;
 }
