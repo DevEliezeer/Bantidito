@@ -11,3 +11,4 @@ A small plugin that i was asked to make years ago & the owner never fully paid m
 ```
 bantidito.sanction
 ```
+![image](https://github.com/DevEliezeer/Bantidito/assets/95094776/bd6f7f9b-ee55-42df-83bc-eb4c21b9293d)
