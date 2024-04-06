@@ -7,7 +7,7 @@ A small plugin that i was asked to make years ago & the owner never fully paid m
 # Dependencies
 * A Ban Plugin like LiteBans
 
-#### Permissions
+# Permissions
 ```
 bantidito.sanction
 ```
